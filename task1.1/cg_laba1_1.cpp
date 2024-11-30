@@ -1,4 +1,4 @@
-﻿#include <opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp> 
 #include <iostream>
 #include <cmath>
 
@@ -6,7 +6,7 @@ using namespace cv;
 using namespace std;
 
 int main() {
-    Mat inputImage = imread("D:\\загрузкия_D\\flowers.png", IMREAD_GRAYSCALE);
+    Mat inputImage = imread("D:\\Учёба\\7 семестр\\comp_graf\\hello\\cg_lab1.1\\task1.1\\flowers.png", IMREAD_GRAYSCALE);
 
     if (inputImage.empty()) {
         cout << "Ошибка: Не удалось загрузить изображение." << endl;
@@ -24,9 +24,9 @@ int main() {
 
     for (int y = 0; y < inputImage.rows; y++) {
         for (int x = 0; x < inputImage.cols; x++) {
-            double distance = sqrt(pow(x - centerX, 2) + pow(y - centerY, 2));
+            double distance = (x - centerX) * (x - centerX) + (y - centerY) * (y - centerY);
 
-            if (distance <= maxRadius) {
+            if (distance <= maxRadius * maxRadius) {
                 outputImage.at<uchar>(y, x) = inputImage.at<uchar>(y, x);
             }
             else {
