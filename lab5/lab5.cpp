@@ -72,6 +72,12 @@ int main()
     Point3d vec(1, 1, 1);
     videoWriter(vertex, color, vec);
 
+    Point3d p0(145, 391, 256);
+    Point3d p1(54, 125, 457);
+    Point3d p2(450, 99, 44);
+    Point3d p3(314, 391, 191);
+    videoWriterBezier(vertex, color, p0, p1, p2, p3);
+
     
 
     return 0;
