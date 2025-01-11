@@ -1,9 +1,10 @@
-﻿#include "pixel.h"
+#include "pixel.h"
 #include "draw_line.h"
 #include "draw_polygon.h"
 #include "Bezier.h"
 #include "Convex.h"
 #include "Cyrus_Beck.h"
+#include "Bezier_N.h"
 int main()
 {
 
@@ -56,7 +57,27 @@ int main()
     imwrite("task2.png", img_task2);
 
 
-    
+    //Безье N-го порядка 
+
+    Mat img_4_first(512, 512, CV_8UC3, Scalar(255, 255, 255));
+    Mat img_4_second(512, 512, CV_8UC3, Scalar(255, 255, 255));
+    vector<Point> vertex1 = { Point(145, 391), Point(54, 125), Point(116, 39), Point(294, 99), Point(314, 278) };
+    vector<Point> vertex2 = { Point(314, 278), Point(54, 125), Point(116, 39), Point(294, 99), Point(145, 391) };
+    int N_Bezier = 4;
+
+
+    Curve_N(img_4_first, vertex1, N_Bezier, color);
+    imwrite("task3_4_first.png", img_4_first);
+
+    Curve_N(img_4_second, vertex2, N_Bezier, color);
+    imwrite("task3_4_second.png", img_4_second);
+
+    Mat img_4_third(512, 512, CV_8UC3, Scalar(255, 255, 255));
+    vector<Point> vertex3 = { Point(46, 475), Point(145, 391), Point(54, 125), Point(250, 290), Point(116, 39), Point(294, 99), Point(314, 278) };
+    int N_Bezier_2 = 6;
+
+    Curve_N(img_4_third, vertex3, N_Bezier_2, color);
+    imwrite("task3_4_third.png", img_4_third);
 
     return 0;
 }
