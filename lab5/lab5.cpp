@@ -1,4 +1,4 @@
-﻿#include "pixel.h"
+#include "pixel.h"
 #include "draw_line.h"
 #include "task1.h"
 #include "task2.h"
